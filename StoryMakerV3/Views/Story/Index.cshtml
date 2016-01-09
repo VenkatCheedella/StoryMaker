@@ -1,0 +1,73 @@
+﻿@model IEnumerable<StoryMakerV3.Models.Story>     
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if(User.IsInRole("Dev"))
+    {
+     @Html.ActionLink("Create New", "Create")   
+    }    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoryDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.StoryPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isArchieved)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoryDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.StoryPath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isArchieved)
+        </td>*@
+        <td>
+            @if(User.IsInRole("Dev"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id=item.StoryId }) 
+            }            
+            @Html.ActionLink("Details", "Details", new { id=item.StoryId }) 
+            @if(User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id=item.StoryId }) 
+                
+            }         
+            @if(User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Archiev", "Archieve", new { id = item.StoryId})  
+            }
+            @Html.ActionLink("PlayStories", "PlayStories", new { id = item.StoryId }) 
+         
+        </td>
+    </tr>
+}
+
+</table>

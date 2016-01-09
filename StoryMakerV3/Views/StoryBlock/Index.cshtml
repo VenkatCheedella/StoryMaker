@@ -1,0 +1,87 @@
+﻿@model IEnumerable<StoryMakerV3.Models.StoryBlock>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="word-wrap:break-word">
+    <col width="150">
+    <col width="150">
+    <col width="200">
+    <col width="400">
+    <col width="100">
+    <col width="100">   
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Collage.CollegeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlockName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Caption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlockSeq)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.isArchieved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagepath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UploadTime)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Collage.CollegeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlockName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Caption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlockSeq)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.isArchieved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagepath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UploadTime)
+        </td>*@
+        <td>
+            @if(User.IsInRole("Dev"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id=item.BlockId }) 
+            }            
+           | @Html.ActionLink("Details", "Details", new { id=item.BlockId }) |
+            @if(User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id=item.BlockId })   
+            }            
+        </td>
+    </tr>
+}
+
+</table>

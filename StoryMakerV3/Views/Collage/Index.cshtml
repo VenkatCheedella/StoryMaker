@@ -1,0 +1,79 @@
+﻿@model IEnumerable<StoryMakerV3.Models.Collage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if(User.IsInRole("Dev"))
+    {
+     @Html.ActionLink("Create New", "Create")
+    }    
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StoryName.StoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollegeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollegeDescription)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.SequenceNum)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CollagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isArchieved)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoryName.StoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollegeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollegeDescription)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.SequenceNum)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CollagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isArchieved)
+        </td>*@
+        <td>
+            @if(User.IsInRole("Dev"))
+            {
+             @Html.ActionLink("Edit", "Edit", new { id=item.CollegeId })    
+            }            
+            | @Html.ActionLink("Details", "Details", new { id=item.CollegeId }) |
+            @if(User.IsInRole("Admin"))
+            {
+              @Html.ActionLink("Delete", "Delete", new { id=item.CollegeId })   
+            }            
+        </td>
+    </tr>
+}
+
+</table>

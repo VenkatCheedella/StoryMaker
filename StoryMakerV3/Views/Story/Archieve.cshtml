@@ -1,0 +1,37 @@
+﻿@model StoryMakerV3.Models.Story
+
+
+@{
+    ViewBag.Title = "Archieve";
+}
+
+<h2>Do you want to archieve the below story?</h2>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoryName)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.StoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StoryName)
+        </td>
+    </tr>
+</table>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirm-Archieve" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,58 @@
+﻿@model StoryMakerV3.Models.Story
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Story</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoryDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoryPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoryPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isArchieved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isArchieved)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

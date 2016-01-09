@@ -1,0 +1,10 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="516.044" Width="550" Background="Gray" >
+    <Grid Margin="0,22,0,-31">
+        <Button x:Name="btnUploadfile" Content="Select File" HorizontalAlignment="Left" Margin="143,137,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0,0" Click="btnUploadfile_Click" FontSize="14" FontFamily="Tahoma" FontWeight="Bold"/>
+        <Label Content="File Upload-Download" HorizontalAlignment="Left" Margin="88,10,0,0" VerticalAlignment="Top" Width="287" FontWeight="Bold" FontSize="15"/>
+        <Label Content="Upload" HorizontalAlignment="Left" Margin="18,130,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" RenderTransformOrigin="0.0,0.0" FontSize="15" FontFamily="Tahoma"/>
+    </Grid>
+</Window>

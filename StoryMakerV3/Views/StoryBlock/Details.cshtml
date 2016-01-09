@@ -1,0 +1,82 @@
+﻿@model StoryMakerV3.Models.StoryBlock
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StoryBlock</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Collage.CollegeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Collage.CollegeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlockName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlockName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlockSeq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlockSeq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isArchieved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isArchieved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagepath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagepath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UploadTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlockId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

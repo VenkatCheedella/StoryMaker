@@ -1,0 +1,17 @@
+﻿@model Dictionary<String, String>
+
+@{
+    ViewBag.Title = "Contact";
+}
+@*<h2>@ViewBag.Title.</h2>*@
+<h3>@ViewBag.Message</h3>
+
+<table>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Key</td>          
+        <td>@item.Value</td>
+    </tr>
+}
+</table>

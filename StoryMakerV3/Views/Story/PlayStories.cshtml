@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Play Stories</title>
+    <script type='text/javascript'
+            src='http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js'>
+    </script>
+
+    <script type="text/javascript">
+        var ArrayOfImgPaths = [@Html.Raw(ViewBag.image_paths)];     
+        var image_captions = '@ViewBag.image_captions';
+        var image_desc = '@ViewBag.image_desc';
+        var ListOfCaptions = image_captions.split("!^");
+        var ListOfDesc = image_desc.split("!^");
+        //alert(image_desc);
+        //alert(image_captions);
+        //alert(ArrayOfImgPaths[0]);
+        var countOfImgpaths = ArrayOfImgPaths.length;
+        var countOfCaptions = ListOfCaptions.length;
+        var countOfDesc = ListOfDesc.length;
+        var _pauseFlow = false;
+        $(function()
+        {
+            setInterval(SlideShow, 3000);
+            $('.pause').on('click', function (e) {
+                e.preventDefault();
+                _pauseFlow = true;
+            });
+
+            $('.resume').on('click', function (e) {
+                e.preventDefault();
+                _pauseFlow = false;
+            });
+        });
+        function SlideShow() {
+            if (!_pauseFlow) {
+                $('#iSlider').fadeOut("slow", function () {
+                    $(this).attr('src', ArrayOfImgPaths[(ArrayOfImgPaths.length++) % countOfImgpaths]).fadeIn("fast");
+                });
+                $('#iCaption').text(ListOfCaptions[(ListOfCaptions.length++) % countOfCaptions]);
+                $('#iDesc').text(ListOfDesc[ListOfDesc.length++ % countOfDesc])
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="slide">
+        <table align="center">
+            <tr>
+                <td height="500" width="500">
+                    <img id="iSlider" alt="Story_Image" src="" height="400px" width="400px" />
+                </td>
+                <td height="500" width="500">
+                    <label for="iSlider" id="iDesc" style="overflow: scroll; height: 400px; width: 400px"  ></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="iSlider" id="iCaption"></label>
+                </td>
+            </tr>
+      @*<tr>
+            <td><button type="button" class="pause">Pause</button></td>
+
+            <td><button type="button" class="resume">Resume</button></td>
+        </tr>*@
+        </table>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td><button type="button" class="pause">Pause</button></td>
+                <td><button type="button" class="resume">Resume</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+

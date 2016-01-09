@@ -1,0 +1,80 @@
+﻿@model StoryMakerV3.Models.Collage
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Collage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StoryName.StoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoryName.StoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollegeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollegeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SequenceNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SequenceNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isArchieved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isArchieved)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,74 @@
+﻿@model StoryMakerV3.Models.Collage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Collage</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StoryName.StoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoryName.StoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollegeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollegeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SequenceNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SequenceNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isArchieved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isArchieved)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CollegeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
